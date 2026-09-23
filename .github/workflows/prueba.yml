@@ -11,8 +11,8 @@ jobs:
                 DEV_TOKEN: ${{secrets.DEV_TOKEN}}
               run: |
                 if [ "$DEV_TOKEN" = "$LOCAL_DEV_TOKEN" ]; then
-                    echo "Los tokens coinciden"
+                    echo "BIEN, los tokens coinciden"
                 else
-                    echo "Los tokens NO coinciden"
+                    echo "MAL, los tokens NO coinciden"
                     exit 1
                 fi
