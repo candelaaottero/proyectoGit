@@ -2,8 +2,8 @@ name: CI
 
 on:
   pull_request:
-    branches: [develop]
     types: [opened, synchronize, reopened]
+    branches: [develop]
   push:
     branches: [develop]
   workflow_dispatch:
@@ -15,16 +15,21 @@ jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+
       - name: Añadir línea de feature al README
         run: |
-	 echo "Añadida feature: ${{ github.head_ref || github.ref_name }}" >> README.md
+          echo "Añadida feature: ${{ github.head_ref || github.ref_name }}" >> README.md
 
       - name: Commit y push
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add README.md
-          git commit -m "ci: actualiza README con nueva feature" || echo "Sin cambios"
+          git commit -m "ci: añade línea de feature al README" || echo "Sin cambios que commitear"
           git push
 
   validate-dev:
@@ -32,7 +37,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Checkout
-	uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Validar DEV_TOKEN
         env:
