@@ -17,7 +17,8 @@ jobs:
           ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Añadir línea de feature al README
-        run: echo "Añadida feature: ${{ github.head_ref || github.ref_name }}" >> README.md
+        run: |
+	 echo "Añadida feature: ${{ github.head_ref || github.ref_name }}" >> README.md
 
       - name: Commit y push
         run: |
