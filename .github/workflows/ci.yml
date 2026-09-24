@@ -8,15 +8,11 @@ on:
     branches: [develop]
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-	uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref || github.ref_name }}
 
@@ -36,9 +32,6 @@ jobs:
     needs: update-readme
     runs-on: self-hosted
     steps:
-      - name: Checkout
-	uses: actions/checkout@v4
-
       - name: Validar DEV_TOKEN
         env:
           DEV_TOKEN: ${{ secrets.DEV_TOKEN }}
