@@ -9,18 +9,20 @@ on:
   workflow_dispatch:
 
 permissions:
-    contents: write
+  contents: write
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+	uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Añadir línea de feature al README
-        run: echo "Añadida feature: ${{ github.head_ref || github.ref_name }}" >> README.md
+        run: |
+	 echo "Añadida feature: ${{ github.head_ref || github.ref_name }}" >> README.md
 
       - name: Commit y push
         run: |
@@ -34,6 +36,9 @@ jobs:
     needs: update-readme
     runs-on: self-hosted
     steps:
+      - name: Checkout
+	uses: actions/checkout@v4
+
       - name: Validar DEV_TOKEN
         env:
           DEV_TOKEN: ${{ secrets.DEV_TOKEN }}
