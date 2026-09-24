@@ -15,11 +15,6 @@ jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-	uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref || github.ref_name }}
-
       - name: Añadir línea de feature al README
         run: |
 	 echo "Añadida feature: ${{ github.head_ref || github.ref_name }}" >> README.md
