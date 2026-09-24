@@ -3,7 +3,7 @@ Versión bump: 2026-09-24 10:11:18
 Versión bump: 2026-09-24 10:11:51
 Versión bump: 2026-09-24 10:12:24
 Versión bump: 2026-09-24 10:14:53
-AppVersion-11
+AppVersion-12
 Versión bump: 2026-09-24 10:11:18
 Versión bump: 2026-09-24 10:11:51
 Versión bump: 2026-09-24 10:12:24
@@ -15,3 +15,4 @@ Versión bump: 2026-09-24 10:40:22
 Versión bump: 2026-09-24 10:40:57
 Versión bump: 2026-09-24 10:59:14
 Versión bump: 2026-09-24 11:05:21
+Versión bump: 2026-09-24 11:20:00
